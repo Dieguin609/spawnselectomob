@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: #01050a; /* Azul quase preto */
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: #fff;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(0, 80, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Título superior esquerdo */
+.main-header {
+    position: absolute;
+    top: 50px;
+    left: 60px;
+    z-index: 10;
+}
+
+.main-header h1 {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.main-header h1 span {
+    color: #007bff; /* Azul SkyPixel */
+}
+
+.accent-line {
+    width: 60px;
+    height: 4px;
+    background: #007bff;
+    margin-top: 15px;
+    box-shadow: 0 0 10px #007bff;
+}
+
+.container {
+    width: 100%;
+    padding: 0 60px;
+    margin-top: 80px;
+}
+
+.spawn-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 CARROS DINÂMICOS */
+    gap: 20px;
+}
+
+/* Estilo dos Cards */
+.spawn-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.spawn-card:hover {
+    transform: translateY(-8px);
+    border-color: #007bff;
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.image-box {
+    position: relative;
+    width: 100%;
+    height: 160px;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, #01050a, transparent);
+}
+
+.content {
+    padding: 25px;
+    text-align: center;
+}
+
+.content h2 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.4rem;
+    color: #007bff;
+    margin-bottom: 8px;
+}
+
+.content p {
+    font-size: 0.85rem;
+    color: #ccc;
+    height: 35px;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+/* Botão de Spawn */
+.btn-spawn {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+
+.btn-spawn:hover {
+    background: #0056b3;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
+    transform: scale(1.02);
+}
