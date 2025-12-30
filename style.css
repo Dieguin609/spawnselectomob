@@ -138,32 +138,3 @@ body {
     box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
     transform: scale(1.02);
 }
-/* --- ADICIONE ISSO NO FINAL DO SEU STYLE.CSS --- */
-@media (max-width: 1024px) {
-    body { 
-        overflow-y: auto !important; /* Permite rolar a tela no celular */
-        align-items: flex-start !important; 
-        padding: 20px 0;
-    }
-
-    .main-header { 
-        position: relative !important; 
-        top: 0 !important; 
-        left: 0 !important; 
-        text-align: center; 
-        margin-bottom: 30px; 
-    }
-
-    .spawn-grid {
-        display: flex !important;
-        flex-direction: column !important; /* Empilha os cards um embaixo do outro */
-        align-items: center;
-        gap: 20px;
-        padding-bottom: 50px;
-    }
-
-    .spawn-card {
-        width: 90% !important; /* Ajusta a largura para não sobrar espaço */
-        max-width: 350px;
-    }
-}
