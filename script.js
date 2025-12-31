@@ -1,7 +1,6 @@
 // Função para o Botão 1: Última Posição
 function spawnUltima() {
     if (window.geckoju) {
-        // Envia o gatilho que o seu Pawn reconhece no strfind
         window.geckoju.send("event:spawnUltima");
     } else {
         console.log("Erro: Geckoju não detectado.");
