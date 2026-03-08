@@ -11,19 +11,19 @@
             height: 100%;
             background: transparent !important;
             overflow: hidden;
-            display: flex;
-            justify-content: center; /* Centraliza na horizontal */
-            align-items: center; /* Centraliza na vertical dentro do espaço do browser */
-            touch-action: none; /* Trava o dedo */
+            touch-action: none; 
             user-select: none;
         }
 
         .logo-img {
+            position: absolute;
+            top: 0px; /* Cola a imagem no topo exato */
+            left: 50%; /* Joga a imagem pro meio da tela */
+            transform: translateX(-50%); /* Ajuste fino pra ficar 100% centralizado */
             width: 100%;
             height: auto;
-            max-width: 120px; /* Tamanho da logo, altere se achar pequena/grande */
+            max-width: 120px; /* Tamanho máximo da logo */
             object-fit: contain;
-            /* Efeito opcional: uma sombrinha leve pra destacar a logo no céu do jogo */
             filter: drop-shadow(0px 2px 5px rgba(0,0,0,0.5)); 
         }
     </style>
