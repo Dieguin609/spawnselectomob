@@ -6,82 +6,97 @@
 
 body {
     height: 100vh;
-    background-color: #01050a; /* Azul quase preto */
+    background-color: #01050a;
     font-family: 'Montserrat', sans-serif;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
     color: #fff;
+    touch-action: none;
+    user-select: none;
+    overflow: hidden;
+    /* Centraliza o main-wrapper no meio exato da tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .overlay {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at top left, rgba(0, 80, 255, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at center, rgba(255, 204, 0, 0.05) 0%, transparent 70%); /* Gradiente centralizado */
     pointer-events: none;
+    z-index: 0;
 }
 
-/* Título superior esquerdo */
-.main-header {
-    position: absolute;
-    top: 50px;
-    left: 60px;
+/* Container que segura o título e os botões juntos no centro */
+.main-wrapper {
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza tudo dentro dele */
+    width: 100%;
+    padding: 0 20px;
+}
+
+/* Cabeçalho agora centralizado */
+.main-header {
+    text-align: center;
+    margin-bottom: 30px; /* Dá um espaço antes dos cartões */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .main-header h1 {
-    font-size: 32px;
+    font-size: 20px; /* Um pouco menor para ficar elegante */
     font-weight: 900;
-    line-height: 1;
-    letter-spacing: -1px;
+    line-height: 1.2;
+    letter-spacing: 1px;
 }
 
 .main-header h1 span {
-    color: #007bff; /* Azul SkyPixel */
+    color: #FFCC00;
 }
 
 .accent-line {
     width: 60px;
-    height: 4px;
-    background: #007bff;
+    height: 3px;
+    background: #FFCC00;
     margin-top: 15px;
-    box-shadow: 0 0 10px #007bff;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
 }
 
-.container {
-    width: 100%;
-    padding: 0 60px;
-    margin-top: 80px;
-}
-
+/* Grid centralizado com largura máxima */
 .spawn-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 CARROS DINÂMICOS */
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px; /* Menos espaço entre eles para ficar mais juntinho */
+    max-width: 900px; /* Trava a largura máxima para não esticar muito no PC */
+    width: 100%;
 }
 
-/* Estilo dos Cards */
+/* Cartões mais finos (estreitos) */
 .spawn-card {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
+    border-radius: 8px; /* Canto mais seco */
     overflow: hidden;
     transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
 }
 
 .spawn-card:hover {
-    transform: translateY(-8px);
-    border-color: #007bff;
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px);
+    border-color: #FFCC00;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 .image-box {
     position: relative;
     width: 100%;
-    height: 160px;
+    height: 90px; /* Imagem mais achatada (fina) */
 }
 
 .image-box img {
@@ -94,47 +109,50 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 50%;
-    background: linear-gradient(to top, #01050a, transparent);
+    height: 60%;
+    background: linear-gradient(to top, rgba(1,5,10,1), transparent); /* Gradiente mais forte para misturar com o fundo escuro */
 }
 
 .content {
-    padding: 25px;
+    padding: 12px 10px; /* Padding menor nas laterais para afinar */
     text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .content h2 {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 1.4rem;
-    color: #007bff;
-    margin-bottom: 8px;
+    font-size: 1rem; /* Título menor */
+    color: #FFCC00;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
 }
 
 .content p {
-    font-size: 0.85rem;
-    color: #ccc;
-    height: 35px;
-    margin-bottom: 20px;
+    font-size: 0.7rem; /* Fonte menor */
+    color: rgba(255, 255, 255, 0.6);
+    height: 32px; /* Trava a altura para alinhar os botões no fundo */
+    margin-bottom: 12px;
     line-height: 1.3;
 }
 
-/* Botão de Spawn */
 .btn-spawn {
     width: 100%;
-    padding: 12px;
-    background: #007bff;
+    padding: 8px; /* Botão mais fino na altura */
+    background: #FFCC00;
     border: none;
-    border-radius: 6px;
-    color: #fff;
-    font-weight: 700;
-    font-size: 0.8rem;
+    border-radius: 4px;
+    color: #000;
+    font-weight: 900;
+    font-size: 0.75rem;
     cursor: pointer;
     transition: 0.3s;
     letter-spacing: 1px;
 }
 
 .btn-spawn:hover {
-    background: #0056b3;
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
-    transform: scale(1.02);
+    background: #fff; /* Fica branco no hover para dar um charme */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
