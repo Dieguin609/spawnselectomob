@@ -131,7 +131,8 @@
     
     function fechar() { 
         if(window.geckoju) {
-            window.geckoju.close(); 
+            // Em vez de .close(), enviamos o comando para o Pawn processar
+            window.geckoju.send("fechar_localiza"); 
         } else {
             console.log("Comando enviado: fechar menu");
         }
