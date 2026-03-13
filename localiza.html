@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localiza Rent a Car</title>
+    <style>
+        :root { --main-green: #008040; --dark-bg: rgba(10, 10, 10, 0.98); }
+        body {
+            margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif;
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; background: rgba(0,0,0,0.5); color: white;
+            overflow: hidden;
+        }
+        .main-card {
+            width: 850px; height: 500px; background: var(--dark-bg);
+            border-radius: 15px; display: grid; grid-template-columns: 1fr 320px;
+            position: relative; border: 1px solid #222; box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+        .header {
+            position: absolute; top: 30px; left: 40px; border-left: 5px solid var(--main-green);
+            padding-left: 20px; z-index: 10;
+        }
+        .header h1 { margin: 0; font-size: 28px; letter-spacing: 3px; color: var(--main-green); font-weight: 900; }
+        
+        /* Ajuste da Imagem para não ficar gigante */
+        .vehicle-display {
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background: radial-gradient(circle, rgba(0, 128, 64, 0.15) 0%, transparent 70%);
+            padding: 20px;
+        }
+        .vehicle-img { 
+            max-width: 80%; /* Limita o tamanho horizontal */
+            max-height: 250px; /* Limita o tamanho vertical */
+            object-fit: contain; 
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.9));
+            transition: 0.5s ease;
+        }
+        .vehicle-display h2 { font-size: 32px; margin-top: 20px; color: #fff; text-shadow: 2px 2px 10px rgba(0,0,0,1); }
+
+        .stats-panel { 
+            background: rgba(255,255,255,0.02); 
+            padding: 40px 30px; 
+            border-left: 1px solid #222;
+            display: flex; flex-direction: column;
+        }
+        .stat-group { margin-bottom: 20px; }
+        .stat-row { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 13px; color: #eee; }
+        .stat-val { color: var(--main-green); font-weight: bold; }
+        
+        .important-notice {
+            background: rgba(255, 193, 7, 0.1);
+            border-left: 3px solid #ffc107;
+            padding: 10px; font-size: 11px; color: #ffc107; margin-top: 10px;
+            line-height: 1.4;
+        }
+
+        .action-btns { margin-top: auto; }
+        .btn {
+            width: 100%; padding: 14px; border: none; border-radius: 6px; font-weight: 800;
+            text-transform: uppercase; cursor: pointer; transition: 0.2s; margin-bottom: 12px;
+        }
+        .btn-rent { background: var(--main-green); color: white; box-shadow: 0 4px 15px rgba(0, 128, 64, 0.3); }
+        .btn-rent:hover { background: #00a552; transform: translateY(-2px); }
+        .btn-close { background: #222; color: #888; font-size: 11px; }
+
+        .selection-bar {
+            position: absolute; bottom: 30px; left: 40px; display: flex; gap: 15px;
+        }
+        .thumb {
+            width: 80px; height: 50px; background: #000; border: 2px solid #222;
+            border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+        }
+        .thumb.active { border-color: var(--main-green); }
+        .thumb img { max-width: 80%; max-height: 80%; }
+    </style>
+</head>
+<body>
+
+<div class="main-card">
+    <div class="header">
+        <h1>LOCALIZA</h1>
+        <small style="color: #aaa; letter-spacing: 1px;">SISTEMA DE MOBILIDADE</small>
+    </div>
+
+    <div class="vehicle-display">
+        <img src="fagio.png" class="vehicle-img" id="main-img">
+        <h2 id="veh-name">FAGIO 50cc</h2>
+    </div>
+
+    <div class="stats-panel">
+        <div class="stat-group">
+            <div class="stat-row"><span>Ano:</span> <span class="stat-val">2026</span></div>
+            <div class="stat-row"><span>Km Rodados:</span> <span class="stat-val">1.240 km</span></div>
+            <div class="stat-row"><span>Combustível:</span> <span class="stat-val">Gasolina</span></div>
+            <div class="stat-row"><span>Categoria:</span> <span class="stat-val">A (Motos)</span></div>
+        </div>
+
+        <div class="important-notice">
+            ⚠️ <b>ATENÇÃO:</b> É obrigatório o uso de habilitação. Em caso de abordagem policial sem CNH, o veículo será apreendido imediatamente.
+        </div>
+
+        <p style="font-size: 11px; color: #888; margin-top: 15px;">
+            * O aluguel expira automaticamente ao desembarcar.<br>
+            * Encontre outros pontos Localiza espalhados pelo mapa para novos aluguéis.
+        </p>
+
+        <div class="action-btns">
+            <button class="btn btn-rent" onclick="alugar()">ALUGAR AGORA (R$ 200)</button>
+            <button class="btn btn-close" onclick="fechar()">CANCELAR E SAIR</button>
+        </div>
+    </div>
+
+    <div class="selection-bar">
+        <div class="thumb active"><img src="fagio.png"></div>
+        <div class="thumb" style="opacity: 0.2;"><img src="mine.png"></div>
+        <div class="thumb" style="opacity: 0.2;"><img src="carro.png"></div>
+    </div>
+</div>
+
+<script>
+    function alugar() { window.location.href = "alugar_veiculo:462"; }
+    function fechar() { window.location.href = "fechar_aluguel"; }
+</script>
+
+</body>
+</html>
